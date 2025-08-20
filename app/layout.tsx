@@ -13,7 +13,7 @@ import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 
 import Balancer from "react-wrap-balancer";
-import Logo from "@/public/logo.svg";
+import Logo from "@/public/job4youthlogo.webp";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -70,18 +70,17 @@ const Nav = ({ className, children, id }: NavProps) => {
         className="max-w-5xl mx-auto py-4 px-6 sm:px-8 flex justify-between items-center"
       >
         <Link
-          className="hover:opacity-75 transition-all flex gap-4 items-center"
+          className="hover:opacity-75 transition-all flex items-center"
           href="/"
         >
           <Image
             src={Logo}
-            alt="Logo"
+            alt="Job4Youth logo"
             loading="eager"
-            className="dark:invert"
-            width={42}
-            height={26.44}
+            width={120}
+            height={28}
+            priority
           ></Image>
-          <h2 className="text-sm">{siteConfig.site_name}</h2>
         </Link>
         {children}
         <div className="flex items-center gap-2">
@@ -94,9 +93,7 @@ const Nav = ({ className, children, id }: NavProps) => {
               </Button>
             ))}
           </div>
-          <Button asChild className="hidden sm:flex">
-            <Link href="https://job4youth.com">Get Started</Link>
-          </Button>
+          <ThemeToggle />
           <MobileNav />
         </div>
       </div>
@@ -114,10 +111,10 @@ const Footer = () => {
               <h3 className="sr-only">{siteConfig.site_name}</h3>
               <Image
                 src={Logo}
-                alt="Logo"
-                className="dark:invert"
-                width={42}
-                height={26.44}
+                alt="Job4Youth logo"
+                width={120}
+                height={28}
+                priority
               ></Image>
             </Link>
             <p>
@@ -150,7 +147,6 @@ const Footer = () => {
           </div>
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
-          <ThemeToggle />
           <p className="text-muted-foreground">
             &copy; <a href="https://job4youth.com">job4youth</a>. All rights reserved.
             2025-present.
