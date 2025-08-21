@@ -17,17 +17,16 @@ import Logo from "@/public/job4youthlogo.webp";
 import Image from "next/image";
 import Link from "next/link";
 
-import type { Metadata } from "next";
+// Metadata will be handled by Next.js automatically
 
 const font = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-  title: "WordPress & Next.js Starter by 9d8",
-  description:
-    "A starter template for Next.js with WordPress as a headless CMS.",
+export const metadata = {
+  title: "Job4Youth - Education & Career Portal",
+  description: "Find the latest jobs, scholarships, internships and educational opportunities for youth in India.",
   metadataBase: new URL(siteConfig.site_domain),
   alternates: {
     canonical: "/",
@@ -76,10 +75,11 @@ const Nav = ({ className, children, id }: NavProps) => {
           <Image
             src={Logo}
             alt="Job4Youth logo"
-            loading="eager"
             width={120}
             height={28}
             priority
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRhoAAABXRUJQVlA4IA4AAACwAQCdASoBAAEAAQAcJaQAA3AA/v3AgAA="
           ></Image>
         </Link>
         {children}
@@ -114,7 +114,8 @@ const Footer = () => {
                 alt="Job4Youth logo"
                 width={120}
                 height={28}
-                priority
+                placeholder="blur"
+                blurDataURL="data:image/webp;base64,UklGRhoAAABXRUJQVlA4IA4AAACwAQCdASoBAAEAAQAcJaQAA3AA/v3AgAA="
               ></Image>
             </Link>
             <p>

@@ -20,7 +20,7 @@ export default async function Home() {
     <main>
 
       {/* Feed */}
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-3xl min-h-[60vh]">
         <ul className="divide-y">
           {posts.map((post) => (
             <PostFeedItem key={post.id} post={post} />

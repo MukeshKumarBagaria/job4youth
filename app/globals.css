@@ -74,11 +74,9 @@
   body {
     @apply bg-background text-foreground;
   }
-}
 
-@layer prose-m-none {
-  * {
-    @apply prose-headings:m-0;
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -94,5 +92,37 @@
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Prevent layout shift */
+  .aspect-ratio-16-9 {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Text rendering optimizations */
+  .optimize-text {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Critical CSS inlined for faster loading */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-lg border shadow-sm;
   }
 }
