@@ -54,7 +54,7 @@ async function wordpressFetch<T>(
       tags: ["wordpress"],
       revalidate: 3600, // 1 hour cache
     },
-  });
+  } as any);
 
   if (!response.ok) {
     throw new WordPressAPIError(
@@ -85,7 +85,7 @@ async function wordpressFetchWithPagination<T>(
       tags: ["wordpress"],
       revalidate: 3600, // 1 hour cache
     },
-  });
+  } as any);
 
   if (!response.ok) {
     throw new WordPressAPIError(
@@ -159,7 +159,7 @@ export async function getPostsPaginated(
       tags: cacheTags,
       revalidate: 3600, // 1 hour cache
     },
-  });
+  } as any);
 
   if (!response.ok) {
     throw new WordPressAPIError(
@@ -270,6 +270,7 @@ export async function getTagBySlug(slug: string): Promise<Tag> {
   );
 }
 
+// get pages
 export async function getAllPages(): Promise<Page[]> {
   return wordpressFetch<Page[]>("/wp-json/wp/v2/pages");
 }
@@ -283,6 +284,9 @@ export async function getPageBySlug(slug: string): Promise<Page> {
     (pages) => pages[0]
   );
 }
+
+
+// get Authors
 
 export async function getAllAuthors(): Promise<Author[]> {
   return wordpressFetch<Author[]>("/wp-json/wp/v2/users");
